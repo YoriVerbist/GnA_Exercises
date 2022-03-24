@@ -17,7 +17,7 @@ def sort(elements):
 def main():
     elements = list()
     operations_list = list()
-    for i in range(1, 50, 1):
+    for i in range(1, 8000, 100):
         numbers = np.random.randint(0, 100, size=i)
         sorted, operations = sort(numbers)
         operations_list.append(operations)
@@ -30,6 +30,7 @@ def main():
     plt.ylabel("No. operations")
     plt.plot(elements, operations_list, color="b", label="experiment")
     plt.plot(elements, squares, color="r", label="theoretical")
+    plt.legend()
     plt.show()
 
 
