@@ -19,8 +19,8 @@ def main():
     operations_list = list()
     best_list = list()
     worst_list = list()
-    for i in range(1, 500, 5):
-        numbers = np.random.randint(0, 100, size=i)
+    for i in range(1, 50, 1):
+        numbers = np.random.randint(0, 1000, size=i)
         best = numbers.copy()
         best.sort()
         worst = best.copy()
@@ -34,6 +34,8 @@ def main():
         elements.append(i)
 
     squares = list(map(lambda x: (x ** 2) / 4, elements))
+    squares_worst = list(map(lambda x: (x ** 2) / 2, elements))
+    squares_worst = list(map(lambda x: x - 1, elements))
 
     plt.xlabel("No. of elements")
     plt.ylabel("No. operations")
@@ -41,6 +43,8 @@ def main():
     plt.plot(elements, best_list, color="g", label="experiment: best case")
     plt.plot(elements, worst_list, color="r", label="experiment: worst case")
     plt.plot(elements, squares, color="y", label="theoretical (~N^2/4)")
+    plt.plot(elements, squares, color="violet", label="theoretical (~N^2/2)")
+    plt.plot(elements, squares, color="grey", label="theoretical (~N)")
     plt.legend()
     plt.show()
 
